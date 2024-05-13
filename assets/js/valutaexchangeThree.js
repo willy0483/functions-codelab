@@ -3,7 +3,6 @@
 // knap til udregning
 const calculateButton = document.getElementById('calculateButt');
 
-
 calculateButton.addEventListener('click', (e) => {
     e.preventDefault();
     //alert('Jeg vil gerne kalde en funktion der kan regne valutaen ud...');
@@ -14,17 +13,30 @@ calculateButton.addEventListener('click', (e) => {
 
 
 // indsamling af data fra dom (model code fra MVC)
+function gatherInputData(){
+    const myEuroRate = document.getElementById('euroRate').value;
+    const myDollarRate = document.getElementById('dollarRate').value;
 
+    const myDanishAmount = document.getElementById('danishAmount').value;
 
-
+    makeExchange(myDanishAmount, myDollarRate, myEuroRate)
+}
 
 
 // håndterer data behandling  (controller code fra MVC)
 
+function makeExchange(myDanishAmount, myDollarRate, myEuroRate){
+    let myDollars = calculateExchange(myDanishAmount, myDollarRate)
+    let myEuros = calculateExchange(myDanishAmount, myEuroRate) 
 
+    showResult(myEuros, myDollars, myDanishAmount);
+}
 
 // sub funktion der udfører en opgave og returnerer et resultat.  stadig controller code i MVC
 
+function calculateExchange(amount, rate) {
+    return amount / rate;
+}
 
 
 

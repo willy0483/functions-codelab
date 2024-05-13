@@ -39,6 +39,11 @@ function makeExchange(myEuroRate, myDollarRate, myDanishAmount) {
 }
 
 
+function calculateExchange(amount, rate) {
+    return amount / rate;
+}
+
+
 
 
 
